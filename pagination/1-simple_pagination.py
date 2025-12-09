@@ -41,7 +41,7 @@ class Server:
         """
         self.dataset()
         for i in [page, page_size]:
-            assert.isinstance(i, int) and page > 0
+            assert isinstance(i, int) and page > 0
         assert page_size > 0
         range_i = index_range(page, page_size)
         return self.__dataset[range_i[0]:range_i[1]]
