@@ -41,20 +41,20 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            """Get hypermedia index pagination.
-                Args:
-                    index: current start index of return page.
-                    page_size: current page size.
-                Return:
-                    A dictionary with index, next_index, page_size and data.
-            """
-            for i in [index, page_size]:
-                assert isinstance(i, int) and index > 0
-            assert page_size > 0
-            next_index = index + page_size
-            return {
-                    "index": index,
-                    "next_index": next_index,
-                    "page_size": len(self.dataset()),
-                    "data": self.dataset()[index: next_index]
-                }
+        """Get hypermedia index pagination.
+            Args:
+                index: current start index of return page.
+                page_size: current page size.
+            Return:
+                A dictionary with index, next_index, page_size and data.
+        """
+        for i in [index, page_size]:
+            assert isinstance(i, int) and index > 0
+        assert page_size > 0
+        next_index = index + page_size
+        return {
+            "index": index,
+            "next_index": next_index,
+            "page_size": len(self.dataset()),
+            "data": self.dataset()[index: next_index]
+        }
