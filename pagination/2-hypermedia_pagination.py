@@ -54,7 +54,7 @@ class Server:
             Return:
                 A dictionary
         """
-        data: int = self.get_page(page, page_size)
+        data: List[List] = self.get_page(page, page_size)
         totalPages: int = math.ceil(len(self.__dataset) / page_size)
         return {
                 'page_size': len(data),
