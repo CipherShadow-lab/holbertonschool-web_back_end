@@ -52,8 +52,8 @@ class Server:
             assert page_size > 0
             next_index = index + page_size
             return {
-                'index': index,
-                'next_index': next_index,
-                'page_size': len(self.dataset()),
-                'data': self.dataset()[index: next_index]
-            }
+                    "index": index,
+                    "next_index": next_index,
+                    "page_size": len(self.dataset()),
+                    "data": self.dataset()[index: next_index]
+                }
