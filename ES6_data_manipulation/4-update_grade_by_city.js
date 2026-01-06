@@ -8,4 +8,5 @@ export default function updateStudentGradeByCity(studentList, city, newGrades) {
         .map(student => {
             const grade = newGrades.find((grade) => grade.studentId === student.id)?.grade || 'N/A';
             return { ...student, grade };
-});
+        });
+}
