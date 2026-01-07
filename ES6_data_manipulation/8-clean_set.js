@@ -1,9 +1,9 @@
 export default function cleanSet(set, startString) {
-    const result [];
+    const result = [];
 
     set.forEach(value => {
         if (value.startsWith(startString)) {
-            result.push(value.slice(startString.length)):
+            result.push(value.slice(startString.length));
         }
     });
 
