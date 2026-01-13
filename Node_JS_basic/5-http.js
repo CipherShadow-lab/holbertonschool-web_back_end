@@ -16,17 +16,20 @@ const app = http.createServer(async (req, res) => {
   const { url } = req;
 
   if (url === '/') {
-    res.write('Hello Holberton School!');
+    res.statusCode = 200;
+    res.end('Hello Holberton School!');
   } else if (url === '/students') {
-    res.write('This is the list of our students\n');
+    res.statusCode = 200;
+    let content = 'This is the list of our students\n';
     try {
       const students = await countStudents(DATABASE);
-      res.end(`${students.join('\n')}`);
-    } catch (error) {
-      res.end(error.message);
+      content += students.join('\n');
+      res.end(content);
+    } catch (err) {
+      res.end(err.message);
     }
-  }
-  res.statusCode = 404;
+  } else {
+    res.statusCode = 404;
   res.end();
 });
 
