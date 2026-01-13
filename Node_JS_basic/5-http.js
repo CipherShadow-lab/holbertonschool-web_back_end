@@ -47,7 +47,7 @@ const app = http.createServer((req, res) => {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.write('This is a list of our students\n');
+    res.write('This is the list of our students\n');
 
     const database = process.argv[2];
 
