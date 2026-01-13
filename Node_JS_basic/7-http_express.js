@@ -17,9 +17,9 @@ app.get('/students', async (req, res) => {
   try {
     const students = await countStudents(LIST);
     res.send(`${respMessage}${students.join('\n')}`);
-    } catch (error) {
-      res.send(`${respMessage}${error.message}`);
-    }
+  } catch (error) {
+    res.send(`${respMessage}${error.message}`);
+  }
 });
 
 app.listen(port, () => { });
