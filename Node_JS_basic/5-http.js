@@ -8,7 +8,6 @@ const DATABASE = args[0];
 const hostname = '127.0.0.1';
 const port = 1245;
 
-// Create app server to handle routes ('/' and '/students')
 const app = http.createServer(async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
@@ -16,20 +15,17 @@ const app = http.createServer(async (req, res) => {
   const { url } = req;
 
   if (url === '/') {
-    res.statusCode = 200;
-    res.end('Hello Holberton School!');
+    res.write('Hello Holberton School!');
   } else if (url === '/students') {
-    res.statusCode = 200;
-    let content = 'This is the list of our students\n';
+    res.write('This is the list of our students\n');
     try {
       const students = await countStudents(DATABASE);
-      content += students.join('\n');
-      res.end(content);
-    } catch (err) {
-      res.end(err.message);
+      res.end(`${students.join('\n')}`);
+    } catch (error) {
+      res.end(error.message);
     }
-  } else {
-    res.statusCode = 404;
+  }
+  res.statusCode = 404;
   res.end();
 });
 
