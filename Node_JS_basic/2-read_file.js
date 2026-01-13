@@ -4,7 +4,7 @@ function countStudents(path) {
   let data;
 
   try {
-    data = fs.readFileSync(path, 'utf8);
+    data = fs.readFileSync(path, 'utf8');
   } catch (err) {
     throw new Error('Cannot load the database');
   }
@@ -16,7 +16,7 @@ function countStudents(path) {
     .filter((line) => line.length > 0);
 
     // Remove header row
-    const students = line.slice(1);
+    const students = lines.slice(1);
 
     // Count total students
     console.log(`Number of students: ${students.length}`);
@@ -38,7 +38,7 @@ function countStudents(path) {
       const list = fields[field].join(', ');
       console.log(
         `Number of students in ${field}: ${fields[field].length}. List: ${list}`
-    };
+      );
   });
 }
 
