@@ -57,7 +57,7 @@ const app = http.createServer((req, res) => {
         res.end(data);
       })
       .catch(() => {
-        res.end('Cannot load database');
+        res.end('Cannot load the database\n');
       });
   }
 });
