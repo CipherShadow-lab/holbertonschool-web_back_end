@@ -13,33 +13,31 @@ function countStudents(path) {
         .split('\n')
         .filter((line) => line.length > 0);
 
+      if (lines.length === 0) {
+        resolve(['Number of students: 0']);
+        return;
+      }
+
       // Remove header row
       const students = lines.slice(1);
 
-      // Count total students
-      console.log(`Number of students: ${students.length}`);
-
-      // Group students by field
       const fields = {};
 
       students.forEach((line) => {
         const [firstname, , , field] = line.split(',');
-
-        if (!fields[field]) {
-          fields[field] = [];
-        }
+        if (!fields[field]) fields[field] = [];
         fields[field].push(firstname);
       });
 
-      // Print each field's summary
+      const output = [];
+      output.push(`Number of students: ${students.length}`);
+
       Object.keys(fields).forEach((field) => {
         const list = fields[field].join(', ');
-        console.log(
-          `Number of students in ${field}: ${fields[field].length}. List: ${list}`,
-        );
+        output.push(`Number of students in ${field}: ${fields[field].length}. List: ${list}`);
       });
 
-      resolve();
+      resolve(output);
     });
   });
 }
