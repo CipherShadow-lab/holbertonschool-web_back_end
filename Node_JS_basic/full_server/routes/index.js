@@ -14,9 +14,9 @@ function controllerRouting(app) {
     StudentsController.getAllStudents(req, res, process.argv[2]);
   });
 
-  router.get('students/:major', (req, res) => {
+  router.get('/students/:major', (req, res) => {
     StudentsController.getAllStudentsByMajor(req, res, process.argv[2]);
   });
 }
 
-export default contollerRouting;
+export default controllerRouting;
