@@ -18,7 +18,7 @@ function realDatabase(path) {
         if (i !== 0) {
           if (!fields[students[i][3]]) fields[students[i][3]] = [];
 
-          fields[students[i][3].push(students[i][0]);
+          fields[students[i][3]].push(students[i][0]);
         }
       }
 
